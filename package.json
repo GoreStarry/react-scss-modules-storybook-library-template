@@ -1,6 +1,6 @@
 {
   "name": "react-scss-modules-storybook-library-template",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -16,7 +16,7 @@
     "build-app": "BUILD_PATH='./gh-pages' react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "npm-run-all --parallel build-watch storybook",
+    "dev": "npm-run-all --parallel build-lib-watch storybook",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -o ./gh-pages/storybook -s public --no-dll"
   },
