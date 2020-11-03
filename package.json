@@ -1,6 +1,6 @@
 {
   "name": "react-scss-modules-storybook-library-template",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -18,14 +18,11 @@
     "eject": "react-scripts eject",
     "dev": "npm-run-all --parallel build-lib-watch storybook",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -o ./gh-pages/storybook -s public --no-dll"
+    "build-storybook": "build-storybook -o ./gh-pages/storybook -s public --no-dll",
+    "minor": "npm version minor --no-git-tag-version",
+    "patch": "npm version patch --no-git-tag-version"
   },
-  "dependencies": {
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "@storybook/addon-knobs": "^6.0.28",
-    "@storybook/addon-storysource": "^6.0.28"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
@@ -40,6 +37,8 @@
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
+    "@storybook/addon-storysource": "^6.0.28",
+    "@storybook/addon-knobs": "^6.0.28",
     "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.28",
     "@storybook/addon-links": "^6.0.28",
@@ -52,6 +51,8 @@
     "babel-loader": "^8.1.0",
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
     "react-is": "^17.0.1",
     "react-scripts": "4.0.0",
     "rollup": "^2.33.1",

@@ -1,3 +1,4 @@
+import React from "react";
 import * as Components from "./lib.js";
 
 function App() {
