@@ -1,7 +1,12 @@
 {
   "name": "react-scss-modules-storybook-library-template",
-  "version": "0.2.1",
-  "private": true,
+  "version": "0.2.2",
+  "homepage": "https://gorestarry.github.io/react-scss-modules-storybook-library-template/",
+  "author": {
+    "name": "Gore Wang",
+    "email": "sunrise91.t3@gmail.com",
+    "url": "https://gore.wang"
+  },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "source": "src/lib.js",
@@ -9,16 +14,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm-run-all --parallel build-lib build-app build-storybook",
+    "build": "rm -rf docs && npm-run-all --parallel build-lib build-app build-storybook",
     "start": "react-scripts start",
     "build-lib": "rollup -c",
     "build-lib-watch": "rollup -c -w",
-    "build-app": "react-scripts build && mv build/* gh-pages",
+    "build-app": "react-scripts build && mv -f build/* docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "npm-run-all --parallel build-lib-watch storybook",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
-    "build-storybook": "build-storybook -o ./gh-pages/storybook -s public --no-dll",
+    "build-storybook": "build-storybook -o ./docs/storybook -s public --no-dll",
     "minor": "npm version minor --no-git-tag-version",
     "patch": "npm version patch --no-git-tag-version"
   },

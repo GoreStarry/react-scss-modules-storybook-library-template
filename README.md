@@ -7,7 +7,7 @@ template to create reusable react components
   * SASS(SCSS)
 * `Storybook` set by preset-create-react-app
 * build package bundle by `Rollup.js`
-* generate storybook site and also create default App page to `gh-pages` folder
+* generate storybook site and also create default App page to `docs` folder
 ---
 ## `Ｗarning...`
 ### can't write JSX in `.js` file, use `.jsx` instead
@@ -21,8 +21,8 @@ In the project directory, you can run:
 
 ### `npm run build`
 * bundle components package to `dist` folder
-* create App index page to `gh-pages` (default ignored)
-* storybook site to `gh-pages/storybook`
+* create App index page to `docs` (default ignored)
+* storybook site to `docs/storybook`
 
 ### `npm run dev`
 * watch package rollup bundle
