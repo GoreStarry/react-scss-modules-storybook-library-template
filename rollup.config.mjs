@@ -12,7 +12,7 @@ import replace from "rollup-plugin-replace";
 import createVuePlugin3 from "rollup-plugin-vue";
 import createVuePlugin2 from "rollup-plugin-vue2";
 import { isVue2, version } from "vue-demi";
-import ScriptSetup from "unplugin-vue2-script-setup/rollup";
+// import ScriptSetup from "unplugin-vue2-script-setup/rollup";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -35,14 +35,14 @@ const babelOptions = isVue2
     };
 
 const defaultSettings = {
-  external: ["vue", "vue-demi"],
+  // external: ["vue", "vue-demi"],
   plugins: [
     peerDepsExternal(),
     // vue({
     //   css: true, // Dynamically inject css as a <style> tag
     //   compileTemplate: true, // Explicitly convert template to render function
     // }),
-    isVue2 ? ScriptSetup() : undefined,
+    // isVue2 ? ScriptSetup() : undefined,
     isVue2
       ? createVuePlugin2({
           css: false,

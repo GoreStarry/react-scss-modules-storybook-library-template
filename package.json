@@ -1,6 +1,6 @@
 {
   "name": "vue-scss-modules-storybook-library-template",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "homepage": "https://gorestarry.github.io/vue-scss-modules-storybook-library-template/",
   "author": {
     "name": "Gore Wang",
@@ -31,17 +31,12 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "vue": "^2.0.0",
+    "vue": "^2.7.14",
     "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.1",
+    "@vue/composition-api": "^1.7.1",
     "vue": "^2.0.0 || >=3.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@vue/composition-api": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
@@ -82,13 +77,12 @@
     "rollup-plugin-vue2": "npm:rollup-plugin-vue@^5.1.9",
     "sass": "^1.56.2",
     "storybook": "^6.5.15",
-    "unplugin-vue2-script-setup": "^0.11.3",
     "vite": "4.0.4",
     "vite-plugin-require": "^1.1.10",
     "vue": "^3.2.45",
-    "vue-loader": "^17.0.1",
+    "vue-loader": "^15.10.1",
     "vue-template-compiler": "2.7.14",
-    "vue2": "npm:vue@2.6.14",
+    "vue2": "npm:vue@2.7.10",
     "vue3": "npm:vue@^3.2.36"
   },
   "browserslist": {
