@@ -15,7 +15,7 @@ import packageJson from "./package.json" assert { type: "json" };
 
 const defaultSettings = {
   plugins: [
-    // peerDepsExternal(),
+    peerDepsExternal(),
     vue(),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
