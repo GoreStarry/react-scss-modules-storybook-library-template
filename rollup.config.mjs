@@ -16,12 +16,10 @@ import packageJson from "./package.json" assert { type: "json" };
 const defaultSettings = {
   plugins: [
     peerDepsExternal(),
-    vue(
-    //   {
-    //   css: true, // Dynamically inject css as a <style> tag
-    //   compileTemplate: true, // Explicitly convert template to render function
-    // }
-    ),
+    vue({
+      css: true, // Dynamically inject css as a <style> tag
+      compileTemplate: true, // Explicitly convert template to render function
+    }),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
