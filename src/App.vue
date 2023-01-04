@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Button from "./examples/Button.vue";
+import Button from "./examples/Button.jsx";
 export default {
   name: "App",
   components: {
