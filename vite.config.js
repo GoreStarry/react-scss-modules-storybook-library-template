@@ -10,6 +10,7 @@ export default defineConfig({
   server: {
     port: 8001,
   },
+  build: { outDir: "build" },
   optimizeDeps: {
     esbuildOptions: {
       loader: {

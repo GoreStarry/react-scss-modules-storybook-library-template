@@ -18,7 +18,7 @@
     "start": "vite",
     "build-lib": "rollup -c",
     "build-lib-watch": "rollup -c -w",
-    "build-app": "vite build && mv -f dist/* docs",
+    "build-app": "vite build",
     "dev": "npm-run-all --parallel build-lib-watch storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o ./docs/storybook",
