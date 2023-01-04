@@ -9,12 +9,14 @@ import { terser } from "rollup-plugin-terser";
 import babel from "rollup-plugin-babel";
 import del from "rollup-plugin-delete";
 import replace from "rollup-plugin-replace";
+import vue from "rollup-plugin-vue";
 
 import packageJson from "./package.json" assert { type: "json" };
 
 const defaultSettings = {
   plugins: [
     // peerDepsExternal(),
+    vue(),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),

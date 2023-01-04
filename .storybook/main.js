@@ -1,12 +1,9 @@
-import { mergeConfig } from 'vite';
-
+import { mergeConfig } from "vite";
 export default {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   // addons: ["@storybook/addon-links", "@storybook/addon-essentials", "@storybook/addon-knobs", "@storybook/addon-storysource"],
   staticDirs: ["../public"],
-  async viteFinal(config, {
-    configType
-  }) {
+  async viteFinal(config, { configType }) {
     // Merge custom configuration into the default config
 
     if (configType === "DEVELOPMENT") {
@@ -20,15 +17,20 @@ export default {
       resolve: (await import("../vite.config.js")).default.resolve,
       // Add dependencies to pre-optimization
       optimizeDeps: {
-        include: ["storybook-dark-mode"]
-      }
+        include: ["storybook-dark-mode"],
+      },
     });
   },
+  core: {
+    builder: "@storybook/builder-vite",
+  },
   framework: {
-    name: "@storybook/react-vite",
-    options: {}
+    name: "@storybook/vue3-vite",
+    // name: "@storybook/react-vite",
+    options: {},
   },
   docs: {
-    docsPage: "automatic"
-  }
+    docsPage: "automatic",
+    autodocs: true,
+  },
 };
