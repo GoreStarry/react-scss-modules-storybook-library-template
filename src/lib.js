@@ -1,3 +1,3 @@
-import Button from "./examples/Button.vue";
+import Button from "./examples/Button.jsx";
 
 export default Button;
