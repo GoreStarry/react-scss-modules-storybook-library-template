@@ -12,6 +12,7 @@ export default defineConfig({
   },
   build: { outDir: "build" },
   optimizeDeps: {
+    exclude: ["vue-demi"],
     esbuildOptions: {
       loader: {
         ".js": "jsx",
