@@ -19,7 +19,7 @@
     "build-lib": "npm run build-lib:2",
     "build-lib:3": "npm run switch:3 && rollup -c",
     "build-lib:2": "npm run switch:2 && rollup -c",
-    "switch:2": "npx vue-demi-switch 2 vue2",
+    "switch:2": "npx vue-demi-switch 2.7 vue2",
     "switch:3": "npx vue-demi-switch 3 vue3",
     "build-lib-watch": "rollup -c -w",
     "build-app": "vite build",
@@ -31,12 +31,16 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "vue": "^2.7.14",
     "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.7.1",
     "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
@@ -79,7 +83,7 @@
     "storybook": "^6.5.15",
     "vite": "4.0.4",
     "vite-plugin-require": "^1.1.10",
-    "vue": "^3.2.45",
+    "vue": "^2.7.14",
     "vue-loader": "^15.10.1",
     "vue-template-compiler": "2.7.14",
     "vue2": "npm:vue@2.7.10",

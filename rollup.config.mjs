@@ -81,14 +81,11 @@ const defaultSettings = {
 
 export default [
   {
-    input: "src/lib.js",
+    input: "src/examples/Button.jsx",
     output: [
       {
         file: getDistDir(version) + "index.es.js",
         format: "es",
-        globals: {
-          jquery: "$",
-        },
       },
       {
         file: getDistDir(version) + "index.cjs.js",
