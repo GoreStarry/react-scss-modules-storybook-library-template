@@ -22,10 +22,7 @@ console.log("=====rollup isVue2=====", isVue2);
 
 const babelOptions = isVue2
   ? {
-      presets: [
-        "@babel/preset-env",
-        ["@vue/babel-preset-jsx", { compositionAPI: true }],
-      ],
+      presets: ["@babel/preset-env", "@vue/babel-preset-jsx"],
       exclude: "**/node_modules/**",
     }
   : {
