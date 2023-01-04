@@ -1,6 +1,6 @@
 {
   "name": "vue-scss-modules-storybook-library-template",
-  "version": "0.2.22",
+  "version": "0.2.23",
   "homepage": "https://gorestarry.github.io/vue-scss-modules-storybook-library-template/",
   "author": {
     "name": "Gore Wang",
@@ -78,13 +78,12 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
-    "rollup-plugin-vue2": "npm:rollup-plugin-vue@^5.1.9",
+    "rollup-plugin-vue2": "npm:rollup-plugin-vue@5.1.9",
     "sass": "^1.57.1",
-    "storybook": "^6.5.15",
+    "storybook": "^7.0.0-beta.19",
     "vite": "4.0.4",
     "vite-plugin-require": "^1.1.10",
-    "vue": "^2.7.14",
-    "vue-loader": "^15.10.1",
+    "vue": "^2.7.10",
     "vue-template-compiler": "2.7.14",
     "vue2": "npm:vue@2.7.10",
     "vue3": "npm:vue@^3.2.36"

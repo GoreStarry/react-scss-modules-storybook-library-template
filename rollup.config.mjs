@@ -12,13 +12,26 @@ import replace from "rollup-plugin-replace";
 import createVuePlugin3 from "rollup-plugin-vue";
 import createVuePlugin2 from "rollup-plugin-vue2";
 import { isVue2, version } from "vue-demi";
-// import ScriptSetup from "unplugin-vue2-script-setup/rollup";
 
 import packageJson from "./package.json" assert { type: "json" };
 
 import { getDistDir } from "./scripts/utils.mjs";
 
 console.log("=====rollup isVue2=====", isVue2);
+
+function vueTransformPlugin(isVue2) {
+  return {
+    resolveId(source) {
+      if (/vue-demi/.test(source)) {
+        if (isVue2) {
+          return "./node_modules/vue-demi/lib/v2.7/index.mjs";
+        } else {
+          return "./node_modules/vue-demi/lib/v3/index.mjs";
+        }
+      }
+    },
+  };
+}
 
 const babelOptions = isVue2
   ? {
@@ -40,17 +53,14 @@ const defaultSettings = {
     //   compileTemplate: true, // Explicitly convert template to render function
     // }),
     // isVue2 ? ScriptSetup() : undefined,
-    isVue2
-      ? createVuePlugin2({
-          css: false,
-        })
-      : createVuePlugin3({ preprocessStyles: true }),
+    createVuePlugin2({
+      css: false,
+    }),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
     resolve({
       extensions: [".vue"], // 无后缀名引用时，需要识别 .vue 文件
-      exclude: "**/node_modules/**", // 排除node_modules
       alias: {
         // 别名引入路径
         vue: isVue2
@@ -72,6 +82,7 @@ const defaultSettings = {
     image(),
     json(),
     babel(babelOptions),
+    vueTransformPlugin(isVue2),
     terser(),
   ],
 };

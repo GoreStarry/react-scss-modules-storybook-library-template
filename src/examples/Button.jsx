@@ -1,22 +1,28 @@
-import { defineComponent } from "vue-demi";
+// import { ref } from "vue-demi";
 import sty from "./button.module.scss";
 import cx from "classnames";
 
-export default defineComponent({
+export default {
+  name: "my-button",
   props: {
     label: { type: String, default: "123" },
   },
   setup({ label }, { slots }) {
-    return () => (
+    console.log(label);
+    return {
+      label,
+    };
+  },
+  render() {
+    return (
       <button
         className={cx(
           sty["storybook-button"],
           sty["storybook-button--primary"]
         )}
-        type="button"
       >
-        {label}
+        {this.label}
       </button>
     );
   },
-});
+};
