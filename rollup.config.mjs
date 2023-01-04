@@ -10,7 +10,7 @@ import babel from "rollup-plugin-babel";
 import del from "rollup-plugin-delete";
 import replace from "rollup-plugin-replace";
 
-const packageJson = require("./package.json");
+import packageJson from "./package.json" assert { type: "json" };
 
 const defaultSettings = {
   plugins: [
@@ -45,12 +45,12 @@ export default [
       {
         file: packageJson.main,
         format: "cjs",
-        sourcemap: true,
+        // sourcemap: true,
       },
       {
         file: packageJson.module,
         format: "esm",
-        sourcemap: true,
+        // sourcemap: true,
       },
     ],
     ...defaultSettings,
