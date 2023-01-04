@@ -27,9 +27,7 @@ const defaultSettings = {
     commonjs({
       // include: /node_modules/
     }),
-    babel({
-      exclude: "node_modules/**",
-    }),
+
     // del({ targets: ["dist/*"] }),
     postcss({
       modules: true,
@@ -40,7 +38,9 @@ const defaultSettings = {
     image(),
     json(),
     terser(),
+    babel(),
   ],
+  external: [/^vue(\/.+|$)/],
 };
 
 export default [
