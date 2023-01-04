@@ -21,6 +21,7 @@ import { getDistDir } from "./scripts/utils.mjs";
 console.log("=====rollup isVue2=====", isVue2);
 
 const defaultSettings = {
+  external: ["vue", "vue-demi"],
   plugins: [
     peerDepsExternal(),
     // vue({
@@ -60,7 +61,6 @@ const defaultSettings = {
     terser(),
     babel(),
   ],
-  external: ["vue", "vue-demi"],
 };
 
 export default [
@@ -70,16 +70,25 @@ export default [
       {
         file: getDistDir(version) + "index.es.js",
         format: "es",
+        globals: {
+          jquery: "$",
+        },
       },
       {
         file: getDistDir(version) + "index.cjs.js",
         format: "cjs",
         exports: "default",
+        globals: {
+          vue: "Vue",
+        },
       },
       {
         file: getDistDir(version) + "index.umd.js",
         format: "umd",
         name: "bundle",
+        globals: {
+          vue: "Vue",
+        },
       },
     ],
     ...defaultSettings,
