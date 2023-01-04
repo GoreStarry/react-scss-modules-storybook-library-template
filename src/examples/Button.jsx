@@ -1,16 +1,13 @@
-import { defineComponent } from "vue";
+import { defineComponent } from "vue-demi";
 import sty from "./button.module.scss";
 import cx from "classnames";
 
 export default defineComponent({
-  name: "Jsx",
   props: {
-    label: {
-      type: String,
-    },
+    label: { type: String, default: "123" },
   },
-  render({ label }) {
-    return (
+  setup({ label }, { slots }) {
+    return () => (
       <button
         className={cx(
           sty["storybook-button"],

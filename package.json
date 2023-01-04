@@ -1,6 +1,6 @@
 {
   "name": "vue-scss-modules-storybook-library-template",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "homepage": "https://gorestarry.github.io/vue-scss-modules-storybook-library-template/",
   "author": {
     "name": "Gore Wang",
@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
     "vue": "^3.2.45"
