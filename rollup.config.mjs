@@ -32,7 +32,7 @@ const babelOptions = isVue2
     };
 
 const defaultSettings = {
-  // external: ["vue", "vue-demi"],
+  external: ["vue-demi"],
   plugins: [
     peerDepsExternal(),
     // vue({
