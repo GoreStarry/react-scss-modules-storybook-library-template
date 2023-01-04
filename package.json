@@ -1,13 +1,13 @@
 {
   "name": "vue-scss-modules-storybook-library-template",
-  "version": "0.2.16",
+  "version": "0.2.17",
   "homepage": "https://gorestarry.github.io/vue-scss-modules-storybook-library-template/",
   "author": {
     "name": "Gore Wang",
     "email": "gore.wang.f2e@gmail.com",
     "url": "https://gore.wang"
   },
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.js",
   "module": "dist/index.es.js",
   "source": "src/lib.js",
   "files": [
