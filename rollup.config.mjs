@@ -9,21 +9,41 @@ import { terser } from "rollup-plugin-terser";
 import babel from "rollup-plugin-babel";
 import del from "rollup-plugin-delete";
 import replace from "rollup-plugin-replace";
-import vue from "rollup-plugin-vue";
+import createVuePlugin3 from "rollup-plugin-vue";
+import createVuePlugin2 from "rollup-plugin-vue2";
+import { isVue2, version } from "vue-demi";
+import ScriptSetup from "unplugin-vue2-script-setup/rollup";
 
 import packageJson from "./package.json" assert { type: "json" };
+
+import { getDistDir } from "./scripts/utils.mjs";
+
+console.log("=====rollup isVue2=====", isVue2);
 
 const defaultSettings = {
   plugins: [
     peerDepsExternal(),
-    vue({
-      css: true, // Dynamically inject css as a <style> tag
-      compileTemplate: true, // Explicitly convert template to render function
-    }),
+    // vue({
+    //   css: true, // Dynamically inject css as a <style> tag
+    //   compileTemplate: true, // Explicitly convert template to render function
+    // }),
+    isVue2 ? ScriptSetup() : undefined,
+    isVue2
+      ? createVuePlugin2({
+          css: false,
+        })
+      : createVuePlugin3({ preprocessStyles: true }),
     replace({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
-    resolve(),
+    resolve({
+      alias: {
+        // 别名引入路径
+        vue: isVue2
+          ? resolve("../../../node_modules/vue2")
+          : resolve("../../../node_modules/vue3"),
+      },
+    }),
     commonjs({
       // include: /node_modules/
     }),
@@ -40,7 +60,7 @@ const defaultSettings = {
     terser(),
     babel(),
   ],
-  external: [/^vue(\/.+|$)/],
+  external: ["vue", "vue-demi"],
 };
 
 export default [
@@ -48,14 +68,18 @@ export default [
     input: "src/lib.js",
     output: [
       {
-        file: packageJson.main,
-        format: "cjs",
-        // sourcemap: true,
+        file: getDistDir(version) + "index.es.js",
+        format: "es",
       },
       {
-        file: packageJson.module,
-        format: "esm",
-        // sourcemap: true,
+        file: getDistDir(version) + "index.cjs.js",
+        format: "cjs",
+        exports: "default",
+      },
+      {
+        file: getDistDir(version) + "index.umd.js",
+        format: "umd",
+        name: "bundle",
       },
     ],
     ...defaultSettings,

@@ -7,7 +7,7 @@
     "email": "gore.wang.f2e@gmail.com",
     "url": "https://gore.wang"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "source": "src/lib.js",
   "files": [
@@ -16,7 +16,11 @@
   "scripts": {
     "build": "rm -rf docs && npm-run-all --parallel build-lib build-app build-storybook",
     "start": "vite",
-    "build-lib": "rollup -c",
+    "build-lib": "npm run build-lib:2",
+    "build-lib:3": "npm run switch:3 && rollup -c",
+    "build-lib:2": "npm run switch:2 && rollup -c",
+    "switch:2": "npx vue-demi-switch 2 vue2",
+    "switch:3": "npx vue-demi-switch 3 vue3",
     "build-lib-watch": "rollup -c -w",
     "build-app": "vite build",
     "dev": "npm-run-all --parallel build-lib-watch storybook",
@@ -26,12 +30,19 @@
     "patch": "npm version patch --no-git-tag-version"
   },
   "dependencies": {
+    "vue": "^2.0.0",
     "classnames": "^2.3.2",
     "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
+    "@vue/composition-api": "^1.7.1",
     "@vue/composition-api": "^1.0.0-rc.1",
     "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
@@ -52,6 +63,7 @@
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/composition-api": "^1.7.1",
     "eslint-plugin-vue": "^9.8.0",
     "npm-run-all": "^4.1.5",
     "postcss-normalize": "^10.0.1",
@@ -65,11 +77,16 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^6.0.0",
+    "rollup-plugin-vue2": "npm:rollup-plugin-vue@^5.1.9",
     "sass": "^1.56.2",
-    "storybook": "^7.0.0-beta.19",
-    "vue": "^3.2.45",
+    "storybook": "^6.5.15",
+    "unplugin-vue2-script-setup": "^0.11.3",
     "vite": "4.0.4",
     "vite-plugin-require": "^1.1.10",
+    "vue-template-compiler": "2.7.14",
+    "vue": "^3.2.45",
+    "vue2": "npm:vue@2.6.14",
+    "vue3": "npm:vue@^3.2.36",
     "vue-loader": "^17.0.1"
   },
   "browserslist": {
