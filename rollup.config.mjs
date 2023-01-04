@@ -6,7 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import image from "@rollup/plugin-image";
 import json from "@rollup/plugin-json";
 import { terser } from "rollup-plugin-terser";
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import del from "rollup-plugin-delete";
 import replace from "rollup-plugin-replace";
 import createVuePlugin3 from "rollup-plugin-vue";
@@ -52,6 +52,8 @@ const defaultSettings = {
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
     resolve({
+      extensions: [".vue"], // 无后缀名引用时，需要识别 .vue 文件
+      exclude: "**/node_modules/**", // 排除node_modules
       alias: {
         // 别名引入路径
         vue: isVue2
@@ -72,8 +74,8 @@ const defaultSettings = {
     }),
     image(),
     json(),
-    terser(),
     babel(babelOptions),
+    terser(),
   ],
 };
 
@@ -92,17 +94,11 @@ export default [
         file: getDistDir(version) + "index.cjs.js",
         format: "cjs",
         exports: "default",
-        globals: {
-          vue: "Vue",
-        },
       },
       {
         file: getDistDir(version) + "index.umd.js",
         format: "umd",
         name: "bundle",
-        globals: {
-          vue: "Vue",
-        },
       },
     ],
     ...defaultSettings,
