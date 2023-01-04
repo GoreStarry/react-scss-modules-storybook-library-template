@@ -20,6 +20,17 @@ import { getDistDir } from "./scripts/utils.mjs";
 
 console.log("=====rollup isVue2=====", isVue2);
 
+const babelOptions = isVue2
+  ? {
+      presets: ["@babel/preset-env", "@vue/babel-preset-jsx"],
+      exclude: "**/node_modules/**",
+    }
+  : {
+      presets: ["@babel/preset-env"],
+      exclude: "**/node_modules/**",
+      plugins: ["@vue/babel-plugin-jsx"],
+    };
+
 const defaultSettings = {
   external: ["vue", "vue-demi"],
   plugins: [
@@ -59,7 +70,7 @@ const defaultSettings = {
     image(),
     json(),
     terser(),
-    babel(),
+    babel(babelOptions),
   ],
 };
 
