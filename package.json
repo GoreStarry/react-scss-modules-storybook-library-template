@@ -7,7 +7,7 @@
     "email": "gore.wang.f2e@gmail.com",
     "url": "https://gore.wang"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.es.js",
   "module": "dist/index.es.js",
   "source": "src/lib.js",
   "files": [

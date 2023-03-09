@@ -42,11 +42,11 @@ export default [
   {
     input: "src/lib.js",
     output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        // sourcemap: true,
-      },
+      // {
+      //   file: packageJson.main,
+      //   format: "cjs",
+      //   // sourcemap: true,
+      // },
       {
         file: packageJson.module,
         format: "esm",
