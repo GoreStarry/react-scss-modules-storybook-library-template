@@ -5,10 +5,10 @@ import commonjs from "@rollup/plugin-commonjs";
 import postcss from "rollup-plugin-postcss";
 import image from "@rollup/plugin-image";
 import json from "@rollup/plugin-json";
-import { terser } from "rollup-plugin-terser";
-import babel from "rollup-plugin-babel";
+import terser from "@rollup/plugin-terser";
+import babel from "@rollup/plugin-babel";
 import del from "rollup-plugin-delete";
-import replace from "rollup-plugin-replace";
+import replace from "@rollup/plugin-replace";
 
 import packageJson from "./package.json" assert { type: "json" };
 
